@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuts N Cuts by Pakeeza — Packaging Pouch Mockup (Before & After)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6e1913;
+      --gold: #c99f63;
+      --bg: #14110f;
+      --card-bg: #1e1916;
+      --border: #382e28;
+      --text: #f0eae1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 3rem;
+    }
+
+    header {
+      background: linear-gradient(180deg, #2b0c09, #1a0806);
+      border-bottom: 1px solid #4a1913;
+      padding: 1.25rem 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .brand-h1 span {
+      font-family: 'Great Vibes', cursive;
+      color: #f2cf9b;
+      font-size: 1.9rem;
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      color: #bfaea2;
+      margin-top: 0.25rem;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem auto 2rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: #e5ded5;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn.active, .btn:hover {
+      background: var(--primary);
+      border-color: #8f231b;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(110,25,19,0.5);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #dfb877, #c29b61);
+      color: #1a0e05;
+      border: none;
+    }
+    .btn-gold:hover {
+      filter: brightness(1.1);
+      color: #1a0e05;
+    }
+
+    .main-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .mockup-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+    }
+    .card-head {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(201,159,99,0.15);
+      color: #dfb877;
+      border: 1px solid rgba(201,159,99,0.3);
+    }
+
+    /* POUCH CONTAINER WITH PRECISE OVERLAY */
+    .pouch-frame {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      background: #000;
+      margin-bottom: 1rem;
+    }
+    .pouch-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: filter 0.3s;
+    }
+
+    /* FRONT OVERLAY: Slanted Top Maroon Box */
+    /* Original image 709 x 1024. Box is ~15% to 75% wide, 6.5% to 25.5% high */
+    .front-sticker-layer {
+      position: absolute;
+      top: 6.2%;
+      left: 14.5%;
+      width: 61.5%;
+      height: 19.5%;
+      transform: rotate(-1.5deg);
+      border-radius: 4px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.65), 0 0 0 1px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+      overflow: hidden;
+    }
+    .front-sticker-layer svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* BACK OVERLAY: Bottom Details & Barcode Area */
+    /* Original image 688 x 1024. Bottom text area is 6% to 94% wide, 73.5% to 97.5% high */
+    .back-sticker-layer {
+      position: absolute;
+      top: 73.2%;
+      left: 5.5%;
+      width: 88.5%;
+      height: 24.2%;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,0,0,0.2);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+      overflow: hidden;
+    }
+    .back-sticker-layer svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* State toggles */
+    .sticker-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.96) !important;
+    }
+
+    .desc-box {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      color: #c9bcaf;
+      line-height: 1.5;
+    }
+    .desc-box strong { color: #f2cf9b; }
+
+    .glow-badge {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1dd173;
+      margin-right: 6px;
+      box-shadow: 0 0 8px #1dd173;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="brand-h1">NUTS N CUTS <span>by Pakeeza</span></h1>
+    <p class="subtitle">Interactive Packaging Mockup · Real Pouches with Rebranded Stickers Applied</p>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn active" id="btn-show-sticker" onclick="setMode('applied')">
+      <span class="glow-badge"></span> With New Stickers (Applied)
+    </button>
+    <button class="btn" id="btn-show-original" onclick="setMode('original')">
+      Original Pouch (Before)
+    </button>
+    <a href="packaging-stickers.html" class="btn btn-gold">
+      🖨️ Go to Print &amp; Download Studio
+    </a>
+  </div>
+
+  <main class="main-grid">
+    
+    <!-- FRONT POUCH MOCKUP CARD -->
+    <div class="mockup-card">
+      <div class="card-head">
+        <h2 class="card-title">Front Pouch Mockup</h2>
+        <span class="tag">Top Logo Rebranded</span>
+      </div>
+
+      <div class="pouch-frame" id="front-frame">
+        <!-- Original Photo of Front Pouch -->
+        <img src="pouch-img2.jpg" alt="Front Packaging Pouch" class="pouch-img">
+
+        <!-- Overlay Sticker (Applied over top red slanted box) -->
+        <div class="front-sticker-layer" id="front-sticker">
+          <!-- Loaded via JS -->
+        </div>
+      </div>
+
+      <div class="desc-box">
+        <strong>Pouch Front Result:</strong> Purana <em>"Pakeeza traders"</em> cursive logo bilkul chupp gaya hai. Us ki jagah <strong>NUTS N CUTS by Pakeeza</strong> ka luxury gold-trimmed sticker perfectly align ho gaya hai. Transparent dry fruits window aur <em>"Health In Every Bite"</em> ribbon bilkul visible aur pristine hain.
+      </div>
+    </div>
+
+    <!-- BACK POUCH MOCKUP CARD -->
+    <div class="mockup-card">
+      <div class="card-head">
+        <h2 class="card-title">Back Pouch Mockup</h2>
+        <span class="tag">Contact &amp; QR Rebranded</span>
+      </div>
+
+      <div class="pouch-frame" id="back-frame">
+        <!-- Original Photo of Back Pouch -->
+        <img src="pouch-img1.jpg" alt="Back Packaging Pouch" class="pouch-img">
+
+        <!-- Overlay Sticker (Applied over bottom shop details) -->
+        <div class="back-sticker-layer" id="back-sticker">
+          <!-- Loaded via JS -->
+        </div>
+      </div>
+
+      <div class="desc-box">
+        <strong>Pouch Back Result:</strong> Oopar ka <strong>Nutrition Facts Table</strong> 100% visible hai. Neechay ka purana Rawalpindi address aur personal mobile number naye brand sticker se cover ho gaya hai, jahan ab <strong>Website link</strong>, <strong>WhatsApp Desk</strong>, <strong>Scannable QR Code</strong> aur <strong>Thank You Note</strong> aa gaya hai (Zero delivery charges).
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    async function loadOverlays() {
+      try {
+        const [resF, resB] = await Promise.all([
+          fetch('sticker-front.svg'),
+          fetch('sticker-back.svg')
+        ]);
+        const svgFront = await resF.text();
+        const svgBack = await resB.text();
+
+        document.getElementById('front-sticker').innerHTML = svgFront;
+        document.getElementById('back-sticker').innerHTML = svgBack;
+      } catch (err) {
+        console.error("Failed to load sticker overlays", err);
+      }
+    }
+
+    function setMode(mode) {
+      const frontSticker = document.getElementById('front-sticker');
+      const backSticker = document.getElementById('back-sticker');
+      const btnApplied = document.getElementById('btn-show-sticker');
+      const btnOrig = document.getElementById('btn-show-original');
+
+      if (mode === 'applied') {
+        frontSticker.classList.remove('sticker-hidden');
+        backSticker.classList.remove('sticker-hidden');
+        btnApplied.classList.add('active');
+        btnOrig.classList.remove('active');
+      } else {
+        frontSticker.classList.add('sticker-hidden');
+        backSticker.classList.add('sticker-hidden');
+        btnOrig.classList.add('active');
+        btnApplied.classList.remove('active');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadOverlays);
+  </script>
+</body>
+</html>

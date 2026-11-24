@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; width: 600px; height: 200px; overflow: hidden; }
+  svg { width: 600px; height: 200px; display: block; }
+</style>
+</head>
+<body>
+<div id="target"></div>
+<script>
+fetch('sticker-front.svg').then(r => r.text()).then(t => {
+  document.getElementById('target').innerHTML = t;
+});
+</script>
+</body>
+</html>

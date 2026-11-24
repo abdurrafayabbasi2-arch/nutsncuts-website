@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a201b"/>
+      <stop offset="70%" stop-color="#14100e"/>
+      <stop offset="100%" stop-color="#0c0908"/>
+    </radialGradient>
+
+    <!-- Gold Foil Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8d3aa"/>
+      <stop offset="35%" stop-color="#c29b61"/>
+      <stop offset="65%" stop-color="#f5e5c9"/>
+      <stop offset="100%" stop-color="#a07a42"/>
+    </linearGradient>
+
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f08858"/>
+      <stop offset="50%" stop-color="#d86534"/>
+      <stop offset="100%" stop-color="#a33d14"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Great+Vibes&amp;family=Playfair+Display:ital,wght@0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap');
+    .serif-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; fill: url(#goldGrad); letter-spacing: 5px; }
+    .script-amp { font-family: 'Great Vibes', cursive; font-weight: 400; fill: url(#copperGrad); }
+    .script-by { font-family: 'Great Vibes', cursive; font-weight: 400; fill: #f4ede2; }
+    .seal-text { font-family: 'Cinzel', serif; font-weight: 700; fill: url(#goldGrad); letter-spacing: 3px; }
+    .sub-text { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 14px; fill: #bfa88c; letter-spacing: 6px; }
+  </style>
+
+  <!-- Base Circle (Facebook Avatar Shape) -->
+  <circle cx="400" cy="400" r="390" fill="url(#bgGrad)"/>
+
+  <!-- Outer Decorative Rings -->
+  <circle cx="400" cy="400" r="370" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.6"/>
+  <circle cx="400" cy="400" r="356" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.8"/>
+  <circle cx="400" cy="400" r="342" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4"/>
+
+  <!-- Inner Center Shield -->
+  <circle cx="400" cy="400" r="280" fill="#181310" stroke="url(#goldGrad)" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="400" cy="400" r="268" fill="none" stroke="rgba(194,155,97,0.3)" stroke-width="1"/>
+
+  <!-- Monogram Seal Center -->
+  <g transform="translate(400, 260)" text-anchor="middle">
+    <!-- Star Anise / Nut Icon -->
+    <path d="M 0,-40 L 8,-12 L 36,-12 L 14,4 L 22,32 L 0,16 L -22,32 L -14,4 L -36,-12 L -8,-12 Z" fill="url(#goldGrad)" opacity="0.9"/>
+    <!-- NNC Brand Seal -->
+    <text y="50" class="seal-text" font-size="28">N · N · C</text>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="260" y1="330" x2="540" y2="330" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="400" cy="330" r="4" fill="url(#copperGrad)"/>
+
+  <!-- Main Brand Title -->
+  <g text-anchor="middle">
+    <text x="325" y="415" class="serif-title" font-size="52">NUTS</text>
+    <text x="400" y="435" class="script-amp" font-size="95">N</text>
+    <text x="475" y="415" class="serif-title" font-size="52">CUTS</text>
+
+    <!-- by Pakeeza -->
+    <text x="400" y="475" class="script-by" font-size="44">by Pakeeza</text>
+
+    <!-- Tagline -->
+    <text x="400" y="525" class="sub-text">PURE &amp; AUTHENTIC PANTRY</text>
+  </g>
+
+  <!-- Bottom Stars and Quality Seal -->
+  <g transform="translate(400, 565)" text-anchor="middle">
+    <text fill="url(#goldGrad)" font-size="16" letter-spacing="8">✦ ✦ ✦</text>
+  </g>
+
+  <!-- Subtle Rim Glow -->
+  <circle cx="400" cy="400" r="388" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+</svg>

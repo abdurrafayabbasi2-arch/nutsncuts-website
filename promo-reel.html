@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Nuts N Cuts — Animated Social Video Reel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;1,600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14100e;
+    --gold: #c29b61;
+    --gold-bright: #dbb882;
+    --copper: #d86534;
+    --ivory: #f4ede2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #080605;
+    color: var(--ivory);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    overflow-x: hidden;
+  }
+
+  .instructions {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--gold-bright);
+    background: rgba(194,155,97,.12);
+    border: 1px solid rgba(194,155,97,.3);
+    padding: 8px 16px;
+    border-radius: 999px;
+  }
+
+  /* 9:16 Video Frame */
+  .reel-container {
+    width: min(390px, 94vw);
+    height: min(690px, 86vh);
+    aspect-ratio: 9/16;
+    background: #120e0c;
+    border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,.9), 0 0 0 2px rgba(194,155,97,.3);
+  }
+
+  /* Story Progress Bars */
+  .progress-bar-wrap {
+    position: absolute;
+    top: 14px; left: 16px; right: 16px;
+    display: flex; gap: 6px;
+    z-index: 50;
+  }
+  .progress-track {
+    flex: 1; height: 3px;
+    background: rgba(255,255,255,.25);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; width: 0%;
+    background: #ffffff;
+    transition: width 0.05s linear;
+  }
+
+  /* Top Bar */
+  .reel-topbar {
+    position: absolute;
+    top: 26px; left: 16px; right: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 50;
+  }
+  .reel-brand {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(20,16,14,.75);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px; border-radius: 999px;
+    border: 1px solid rgba(194,155,97,.3);
+  }
+  .reel-seal {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--gold); color: #14100e;
+    font-family: "Cinzel", serif; font-size: 8px; font-weight: 700;
+    display: grid; place-items: center;
+  }
+  .reel-brand-text {
+    font-family: "Playfair Display", serif;
+    font-size: 11px; font-weight: 700; color: var(--ivory);
+    letter-spacing: .06em;
+  }
+  .reel-brand-text em { font-family: "Great Vibes", cursive; color: var(--copper); font-size: 14px; }
+
+  .audio-toggle {
+    background: rgba(20,16,14,.75);
+    border: 1px solid rgba(194,155,97,.3);
+    color: var(--gold-bright);
+    width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center;
+    cursor: pointer; font-size: 14px;
+  }
+
+  /* Slide Wrapper */
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 70px 24px 30px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .5s ease;
+  }
+  .slide.active { opacity: 1; pointer-events: auto; }
+
+  /* Slide Background Photo with Zoom Animation */
+  .slide-bg {
+    position: absolute; inset: 0; z-index: 0;
+    overflow: hidden;
+  }
+  .slide-bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(.4) saturate(1.2);
+    transform: scale(1);
+    transition: transform 4.5s ease-out;
+  }
+  .slide.active .slide-bg img { transform: scale(1.15); }
+  .slide-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(14,10,8,.4) 0%, rgba(14,10,8,.75) 60%, rgba(14,10,8,.95) 100%);
+  }
+
+  .slide-content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    height: 100%;
+  }
+
+  /* Typography on Reel */
+  .tag-pill {
+    align-self: flex-start;
+    background: rgba(216,101,52,.35);
+    border: 1px solid var(--copper);
+    color: #fff;
+    font-size: 11px; font-weight: 800;
+    padding: 4px 12px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: .08em;
+    margin-bottom: 14px;
+    animation: bounceIn .6s cubic-bezier(.2,1,.3,1);
+  }
+  .slide-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 32px; font-weight: 700;
+    line-height: 1.15; color: var(--ivory);
+    margin-bottom: 12px;
+    text-shadow: 0 4px 16px rgba(0,0,0,.8);
+  }
+  .slide-title em {
+    color: var(--gold-bright); font-style: italic;
+  }
+  .slide-desc {
+    font-size: 14px; line-height: 1.5;
+    color: #e3d7c7; margin-bottom: 20px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.9);
+  }
+
+  /* Price highlight badge */
+  .price-highlight {
+    background: rgba(20,16,14,.85);
+    border: 1px solid rgba(194,155,97,.4);
+    border-radius: 18px;
+    padding: 14px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .price-highlight .left b { display: block; font-size: 16px; color: var(--ivory); }
+  .price-highlight .left small { color: #85d29d; font-weight: 700; }
+  .price-highlight .right {
+    font-size: 22px; font-weight: 800;
+    color: var(--gold-bright);
+  }
+  .price-highlight .right s {
+    font-size: 13px; color: #aaa; margin-right: 6px; font-weight: 500;
+  }
+
+  /* Interactive Tap zones */
+  .tap-left, .tap-right {
+    position: absolute; top: 0; bottom: 0; width: 40%;
+    z-index: 40; cursor: pointer;
+  }
+  .tap-left { left: 0; }
+  .tap-right { right: 0; }
+
+  /* Big Action Button */
+  .reel-cta-btn {
+    background: linear-gradient(135deg, var(--copper), #b3441a);
+    color: #fff; font-weight: 800; font-size: 15px;
+    padding: 14px 20px; border-radius: 999px;
+    border: 0; width: 100%; text-align: center;
+    box-shadow: 0 8px 24px rgba(216,101,52,.45);
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    animation: pulseBtn 2s infinite ease-in-out;
+  }
+
+  /* Slide 4 (Final CTA with QR) */
+  .qr-center-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 14px;
+    width: 170px; height: 170px;
+    margin: 0 auto 16px;
+    display: grid; place-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.6);
+  }
+  .qr-center-box img { width: 100%; height: 100%; }
+
+  @keyframes bounceIn {
+    0% { transform: translateY(14px) scale(.92); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+  @keyframes pulseBtn {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+
+  /* Control buttons under reel */
+  .reel-controls {
+    display: flex; gap: 10px; margin-top: 14px;
+  }
+  .ctrl-btn {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(194,155,97,.3);
+    color: var(--ivory); font-size: 13px; font-weight: 700;
+    padding: 8px 18px; border-radius: 999px;
+    cursor: pointer;
+  }
+  .ctrl-btn:hover { background: rgba(255,255,255,.16); }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  🎬 <b>Screen-Record Ready Reel:</b> Apne phone ya PC par screen recording on karein aur is reel ko record karke TikTok/Insta par lagayein!
+</div>
+
+<div class="reel-container" id="reelContainer">
+  <!-- Story Bars -->
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="fill-0"></div></div>
+    <div class="progress-track"><div class="progress-fill" id="fill-1"></div></div>
+    <div class="progress-track"><div class="progress-fill" id="fill-2"></div></div>
+    <div class="progress-track"><div class="progress-fill" id="fill-3"></div></div>
+  </div>
+
+  <!-- Header -->
+  <div class="reel-topbar">
+    <div class="reel-brand">
+      <div class="reel-seal">NNC</div>
+      <div class="reel-brand-text">NUTS <em>N</em> CUTS <span>by Pakeeza</span></div>
+    </div>
+    <button class="audio-toggle" id="audioToggle" title="Toggle Sound">🎵</button>
+  </div>
+
+  <!-- Tap Nav -->
+  <div class="tap-left" onclick="prevSlide()"></div>
+  <div class="tap-right" onclick="nextSlide()"></div>
+
+  <!-- Slide 1: Hook / Dry Fruits -->
+  <div class="slide active" id="slide-0">
+    <div class="slide-bg">
+      <img src="./images/mix-dry-fruits.webp" alt="Dry Fruits">
+      <div class="slide-scrim"></div>
+    </div>
+    <div class="slide-content">
+      <span class="tag-pill">🔥 Direct Pantry Rates</span>
+      <h2 class="slide-title">Bazaar Se Saste<br><em>Fresh Dry Fruits</em></h2>
+      <p class="slide-desc">Salted Iranian Pista, Kaghzi Akhrot, Ajwa Khajoor aur Chilgoza — bazaar se kam rates par heat-sealed packs mein!</p>
+      <div class="price-highlight">
+        <div class="left">
+          <b>Mixed Dry Fruits (مکس ڈرائی فروٹ)</b>
+          <small>✓ Save Rs. 60 vs Market</small>
+        </div>
+        <div class="right">
+          <s>Rs. 2,500</s> Rs. 2,440
+        </div>
+      </div>
+      <button class="reel-cta-btn" onclick="nextSlide()">Agla Fayeda Dekhein ➔</button>
+    </div>
+  </div>
+
+  <!-- Slide 2: Pure Spices & Seeds -->
+  <div class="slide" id="slide-1">
+    <div class="slide-bg">
+      <img src="./images/garam-masala.webp" alt="Authentic Spices">
+      <div class="slide-scrim"></div>
+    </div>
+    <div class="slide-content">
+      <span class="tag-pill">🌿 100% Khalis Masalay</span>
+      <h2 class="slide-title">Milawat Se Paak<br><em>Asli Khushboo</em></h2>
+      <p class="slide-desc">Sabit aur pisi hui Lal Mirch, Haldi, Sabz Elaichi, Zeera aur Chia/Pumpkin seeds. Koi chemical ya rang nahi.</p>
+      <div class="price-highlight">
+        <div class="left">
+          <b>Sabz Elaichi &amp; Whole Spices</b>
+          <small>✓ Freshly Weighed &amp; Sealed</small>
+        </div>
+        <div class="right">
+          Rs. 570 <small style="font-size:12px;color:#aaa">se shuru</small>
+        </div>
+      </div>
+      <button class="reel-cta-btn" onclick="nextSlide()">Sab Se Unique Feature ➔</button>
+    </div>
+  </div>
+
+  <!-- Slide 3: Custom Rupee Feature -->
+  <div class="slide" id="slide-2">
+    <div class="slide-bg">
+      <img src="./images/pista.webp" alt="Pistachio">
+      <div class="slide-scrim"></div>
+    </div>
+    <div class="slide-content">
+      <span class="tag-pill">💡 Unique Feature</span>
+      <h2 class="slide-title">Apne Budget Ka<br><em>Order Karein!</em></h2>
+      <p class="slide-desc">Sirf Rs. 200 ka Zeera chahiye ya Rs. 400 ke Akhrot? Website par apni marzi ki Rupee amount likhein, exact grams khud calculate ho jayenge!</p>
+      <div class="price-highlight">
+        <div class="left">
+          <b>Custom Rupee Pack</b>
+          <small>✓ Apni Marzi Ki Amount Enter Karein</small>
+        </div>
+        <div class="right" style="font-size:18px">
+          Rs. 200 se Shuru
+        </div>
+      </div>
+      <button class="reel-cta-btn" onclick="nextSlide()">Order Kaise Karein? ➔</button>
+    </div>
+  </div>
+
+  <!-- Slide 4: Fast Delivery & Scan to Order -->
+  <div class="slide" id="slide-3">
+    <div class="slide-bg">
+      <img src="./images/ajwa-khajoor.webp" alt="Dates">
+      <div class="slide-scrim"></div>
+    </div>
+    <div class="slide-content" style="text-align:center">
+      <span class="tag-pill" style="align-self:center">🚚 Fast Home Delivery</span>
+      <h2 class="slide-title" style="font-size:26px">Pindi / Islamabad: <em>Rs. 150</em><br>Nationwide Free &gt; Rs. 4,000</h2>
+      
+      <div class="qr-center-box">
+        <img src="nutsncuts-qr-code.svg" alt="Scan to Order">
+      </div>
+
+      <p class="slide-desc" style="font-size:13px;margin-bottom:14px">
+        Abhi scan karein ya visit karein:<br>
+        <b style="color:var(--gold-bright)">nutsncuts-pakeeza.netlify.app</b><br>
+        WhatsApp: <b>+92 333 3415977</b>
+      </p>
+
+      <a class="reel-cta-btn" href="https://nutsncuts-pakeeza.netlify.app/" target="_blank">Abhi Website Visit Karein ↗</a>
+    </div>
+  </div>
+</div>
+
+<div class="reel-controls">
+  <button class="ctrl-btn" onclick="togglePlayPause()" id="playPauseBtn">⏸ Pause</button>
+  <button class="ctrl-btn" onclick="restartReel()">🔄 Replay</button>
+  <button class="ctrl-btn" onclick="openFullscreen()">⛶ Fullscreen</button>
+</div>
+
+<script>
+const TOTAL_SLIDES = 4;
+const SLIDE_DURATION = 4200; // ms per slide
+let curSlide = 0;
+let progress = 0;
+let timer = null;
+let isPaused = false;
+let audioCtx = null;
+
+function updateSlide(idx) {
+  curSlide = (idx + TOTAL_SLIDES) % TOTAL_SLIDES;
+  document.querySelectorAll(".slide").forEach((s, i) => {
+    s.classList.toggle("active", i === curSlide);
+  });
+  document.querySelectorAll(".progress-fill").forEach((f, i) => {
+    if (i < curSlide) f.style.width = "100%";
+    else if (i > curSlide) f.style.width = "0%";
+    else f.style.width = "0%";
+  });
+  progress = 0;
+  playBeep();
+}
+
+function nextSlide() {
+  updateSlide(curSlide + 1);
+}
+function prevSlide() {
+  updateSlide(curSlide - 1);
+}
+
+function tick() {
+  if (isPaused) return;
+  progress += (50 / SLIDE_DURATION) * 100;
+  const currentFill = document.getElementById("fill-" + curSlide);
+  if (currentFill) currentFill.style.width = Math.min(100, progress) + "%";
+
+  if (progress >= 100) {
+    if (curSlide === TOTAL_SLIDES - 1) {
+      updateSlide(0); // Loop reel
+    } else {
+      nextSlide();
+    }
+  }
+}
+
+function togglePlayPause() {
+  isPaused = !isPaused;
+  document.getElementById("playPauseBtn").textContent = isPaused ? "▶ Play" : "⏸ Pause";
+}
+
+function restartReel() {
+  isPaused = false;
+  document.getElementById("playPauseBtn").textContent = "⏸ Pause";
+  updateSlide(0);
+}
+
+function openFullscreen() {
+  const el = document.getElementById("reelContainer");
+  if (el.requestFullscreen) el.requestFullscreen();
+  else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+}
+
+/* Optional gentle ambient sound synthesized with Web Audio */
+function playBeep() {
+  if (!audioCtx) return;
+  try {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(520, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(780, audioCtx.currentTime + 0.15);
+    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.2);
+  } catch {}
+}
+
+document.getElementById("audioToggle").addEventListener("click", () => {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    document.getElementById("audioToggle").textContent = "🔊";
+  } else {
+    audioCtx.close();
+    audioCtx = null;
+    document.getElementById("audioToggle").textContent = "🔇";
+  }
+});
+
+timer = setInterval(tick, 50);
+</script>
+
+</body>
+</html>

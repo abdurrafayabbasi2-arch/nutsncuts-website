@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://nutsncuts-pakeeza.netlify.app/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/profile-logo.png</image:loc>
+      <image:title>Nuts N Cuts by Pakeeza Logo</image:title>
+      <image:caption>Nuts N Cuts by Pakeeza - Dry Fruits, Pure Spices &amp; Dates Pakistan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/mix-dry-fruits.webp</image:loc>
+      <image:title>Royal Mixed Dry Fruits Pakistan</image:title>
+      <image:caption>Handpicked premium almonds, cashews, pistachios, and walnuts</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/pista.webp</image:loc>
+      <image:title>Salted Iranian Pistachios</image:title>
+      <image:caption>Roasted and lightly salted jumbo Iranian pistachios</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/badam.webp</image:loc>
+      <image:title>Pure Giri Badam - Almonds</image:title>
+      <image:caption>Sweet, oil-rich premium almonds</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/ajwa-khajoor.webp</image:loc>
+      <image:title>Authentic Saudi Ajwa Dates</image:title>
+      <image:caption>Soft, authentic Madinah Ajwa dates</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/chilgoza.webp</image:loc>
+      <image:title>Roasted Pine Nuts Chilgoza</image:title>
+      <image:caption>Freshly roasted northern Pakistan Chilgoza</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/haldi-powder.webp</image:loc>
+      <image:title>Pure Haldi Turmeric Powder</image:title>
+      <image:caption>100% stone-ground aromatic kitchen turmeric</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/garam-masala.webp</image:loc>
+      <image:title>Royal Shahi Garam Masala</image:title>
+      <image:caption>Aromatic whole and ground spice blend</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nutsncuts-pakeeza.netlify.app/images/chia-seeds.webp</image:loc>
+      <image:title>Organic Chia Seeds</image:title>
+      <image:caption>Triple-cleaned organic wellness chia seeds</image:caption>
+    </image:image>
+  </url>
+</urlset>

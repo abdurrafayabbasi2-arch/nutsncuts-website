@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Back Sticker Clean Render</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 680px;
+      height: 400px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    svg {
+      width: 680px;
+      height: 400px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400">
+  <defs>
+    <!-- Paper tint matching the packaging pouch off-white paper texture -->
+    <linearGradient id="pouchPaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#fdfcfb"/>
+      <stop offset="100%" stop-color="#f8f6f0"/>
+    </linearGradient>
+
+    <filter id="stickerShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Playfair+Display:ital,wght@0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap');
+    
+    /* LIGHTER CRIMSON RED BRAND TITLE */
+    .brand-red { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 26px; fill: #9e241c; letter-spacing: 2px; }
+    .brand-amp-red { font-family: 'Great Vibes', cursive; font-size: 40px; fill: #9e241c; }
+    .brand-by-red { font-family: 'Great Vibes', cursive; font-size: 24px; fill: #9e241c; }
+    
+    .dark-header { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; font-weight: 800; fill: #1c1815; text-transform: uppercase; letter-spacing: 1px; }
+    .dark-val { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14.5px; font-weight: 700; fill: #111111; }
+    .dark-sub { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: #555555; }
+
+    .note-head-red { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 700; fill: #9e241c; }
+    .note-dark-body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 12px; font-weight: 500; fill: #1a1a1a; line-height: 1.5; }
+
+    .qr-banner-red { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 10px; font-weight: 800; fill: #9e241c; letter-spacing: 1px; text-transform: uppercase; }
+  </style>
+
+  <!-- Pouch Matching Sticker Card Background -->
+  <rect x="4" y="4" width="672" height="392" rx="14" fill="url(#pouchPaper)"/>
+
+  <!-- Border Lines: Lighter Red Tone -->
+  <rect x="12" y="12" width="656" height="376" rx="10" fill="none" stroke="#9e241c" stroke-width="2.5"/>
+  <rect x="17" y="17" width="646" height="366" rx="7" fill="none" stroke="#222222" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.35"/>
+
+  <!-- TOP BRAND HEADER -->
+  <g transform="translate(340, 48)" text-anchor="middle">
+    <text x="0" y="0">
+      <tspan class="brand-red">NUTS </tspan>
+      <tspan class="brand-amp-red" dx="-4" dy="3">N</tspan>
+      <tspan class="brand-red" dx="-4" dy="-3"> CUTS </tspan>
+      <tspan class="brand-by-red">by Pakeeza</tspan>
+    </text>
+    <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#332c28" letter-spacing="2" text-transform: uppercase">
+      Dry Fruits · Kitchen Spices · Premium Dates
+    </text>
+  </g>
+
+  <!-- Header Separation Line -->
+  <line x1="36" y1="84" x2="644" y2="84" stroke="#9e241c" stroke-width="1.2" opacity="0.7"/>
+  <circle cx="340" cy="84" r="3" fill="#9e241c"/>
+
+  <!-- LEFT COLUMN: Contact & Thank You Note -->
+  <g transform="translate(36, 110)">
+
+    <!-- Official Website Row -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="-12" width="28" height="28" rx="6" fill="#fdf0f0"/>
+      <!-- Globe Icon in Red -->
+      <path d="M 14,-6 A 8,8 0 1,0 14,10 A 8,8 0 1,0 14,-6 Z M 6,2 L 22,2 M 14,-6 C 11,-2 11,6 14,10 C 17,6 17,-2 14,-6 Z" fill="none" stroke="#9e241c" stroke-width="1.5"/>
+      <text x="36" y="0" class="dark-header" fill="#9e241c">Official Online Store</text>
+      <text x="36" y="18" class="dark-val">https://nutsncuts-pakeeza.netlify.app/</text>
+    </g>
+
+    <!-- WhatsApp Row (Green icon) -->
+    <g transform="translate(0, 52)">
+      <rect x="0" y="-12" width="28" height="28" rx="6" fill="#eaf6ee"/>
+      <!-- WhatsApp Icon -->
+      <path d="M 14,-6 A 8,8 0 0,0 7,6 L 6,10 L 10,9 A 8,8 0 1,0 14,-6 Z" fill="none" stroke="#1d824c" stroke-width="1.5"/>
+      <circle cx="13" cy="2" r="1.5" fill="#1d824c"/>
+      <text x="36" y="0" class="dark-header" fill="#1d824c">WhatsApp &amp; Direct Orders</text>
+      <text x="36" y="18" class="dark-val">+92 333 3415977 <tspan class="dark-sub">(Call / Message)</tspan></text>
+    </g>
+
+    <!-- Thank You Note Box (Clean White Box with Red Left Accent) -->
+    <g transform="translate(0, 102)">
+      <rect x="0" y="0" width="414" height="92" rx="8" fill="#ffffff" stroke="#e3ded9" stroke-width="1"/>
+      <rect x="0" y="0" width="5" height="92" rx="2" fill="#9e241c"/>
+      
+      <text x="16" y="24" class="note-head-red">Thank You for Choosing Us! 🤲</text>
+      <text x="16" y="48" class="note-dark-body">
+        <tspan x="16" dy="0">We handpick and seal every spice, nut, date &amp; seed</tspan>
+        <tspan x="16" dy="18">with utmost hygiene for your family’s health and pure taste.</tspan>
+        <tspan x="16" dy="18" font-weight="700" fill="#9e241c">Scan the QR code to reorder anytime!</tspan>
+      </text>
+    </g>
+
+  </g>
+
+  <!-- Vertical Divider Line -->
+  <line x1="472" y1="102" x2="472" y2="355" stroke="#d5cecb" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- RIGHT COLUMN: High-Contrast QR Code Card with 4-Module Quiet Zone -->
+  <g transform="translate(488, 98)">
+    <!-- White Card Mount -->
+    <rect x="0" y="0" width="156" height="248" rx="10" fill="#ffffff" stroke="#9e241c" stroke-width="1.2" filter="url(#stickerShadow)"/>
+
+    <!-- QR Top Badge -->
+    <rect x="14" y="12" width="128" height="22" rx="999" fill="#fdf0f0"/>
+    <text x="78" y="27" class="qr-banner-red" text-anchor="middle">Scan to Order</text>
+
+    <!-- Vector QR Code with Guaranteed White Margin (Quiet Zone) for Instant Phone Scanning -->
+    <g transform="translate(15, 42)">
+      <svg width="126" height="126" viewBox="-2 -2 33 33">
+        <rect fill="#ffffff" x="-2" y="-2" width="33" height="33" />
+        <path fill="#111111" d="M 0,0 l 1,0 0,1 -1,0 z M 1,0 l 1,0 0,1 -1,0 z M 2,0 l 1,0 0,1 -1,0 z M 3,0 l 1,0 0,1 -1,0 z M 4,0 l 1,0 0,1 -1,0 z M 5,0 l 1,0 0,1 -1,0 z M 6,0 l 1,0 0,1 -1,0 z M 10,0 l 1,0 0,1 -1,0 z M 12,0 l 1,0 0,1 -1,0 z M 14,0 l 1,0 0,1 -1,0 z M 16,0 l 1,0 0,1 -1,0 z M 18,0 l 1,0 0,1 -1,0 z M 19,0 l 1,0 0,1 -1,0 z M 20,0 l 1,0 0,1 -1,0 z M 22,0 l 1,0 0,1 -1,0 z M 23,0 l 1,0 0,1 -1,0 z M 24,0 l 1,0 0,1 -1,0 z M 25,0 l 1,0 0,1 -1,0 z M 26,0 l 1,0 0,1 -1,0 z M 27,0 l 1,0 0,1 -1,0 z M 28,0 l 1,0 0,1 -1,0 z M 0,1 l 1,0 0,1 -1,0 z M 6,1 l 1,0 0,1 -1,0 z M 8,1 l 1,0 0,1 -1,0 z M 10,1 l 1,0 0,1 -1,0 z M 15,1 l 1,0 0,1 -1,0 z M 20,1 l 1,0 0,1 -1,0 z M 22,1 l 1,0 0,1 -1,0 z M 28,1 l 1,0 0,1 -1,0 z M 0,2 l 1,0 0,1 -1,0 z M 2,2 l 1,0 0,1 -1,0 z M 3,2 l 1,0 0,1 -1,0 z M 4,2 l 1,0 0,1 -1,0 z M 6,2 l 1,0 0,1 -1,0 z M 12,2 l 1,0 0,1 -1,0 z M 15,2 l 1,0 0,1 -1,0 z M 20,2 l 1,0 0,1 -1,0 z M 22,2 l 1,0 0,1 -1,0 z M 24,2 l 1,0 0,1 -1,0 z M 25,2 l 1,0 0,1 -1,0 z M 26,2 l 1,0 0,1 -1,0 z M 28,2 l 1,0 0,1 -1,0 z M 0,3 l 1,0 0,1 -1,0 z M 2,3 l 1,0 0,1 -1,0 z M 3,3 l 1,0 0,1 -1,0 z M 4,3 l 1,0 0,1 -1,0 z M 6,3 l 1,0 0,1 -1,0 z M 8,3 l 1,0 0,1 -1,0 z M 9,3 l 1,0 0,1 -1,0 z M 10,3 l 1,0 0,1 -1,0 z M 12,3 l 1,0 0,1 -1,0 z M 13,3 l 1,0 0,1 -1,0 z M 15,3 l 1,0 0,1 -1,0 z M 16,3 l 1,0 0,1 -1,0 z M 17,3 l 1,0 0,1 -1,0 z M 22,3 l 1,0 0,1 -1,0 z M 24,3 l 1,0 0,1 -1,0 z M 25,3 l 1,0 0,1 -1,0 z M 26,3 l 1,0 0,1 -1,0 z M 28,3 l 1,0 0,1 -1,0 z M 0,4 l 1,0 0,1 -1,0 z M 2,4 l 1,0 0,1 -1,0 z M 3,4 l 1,0 0,1 -1,0 z M 4,4 l 1,0 0,1 -1,0 z M 6,4 l 1,0 0,1 -1,0 z M 9,4 l 1,0 0,1 -1,0 z M 13,4 l 1,0 0,1 -1,0 z M 16,4 l 1,0 0,1 -1,0 z M 17,4 l 1,0 0,1 -1,0 z M 19,4 l 1,0 0,1 -1,0 z M 20,4 l 1,0 0,1 -1,0 z M 22,4 l 1,0 0,1 -1,0 z M 24,4 l 1,0 0,1 -1,0 z M 25,4 l 1,0 0,1 -1,0 z M 26,4 l 1,0 0,1 -1,0 z M 28,4 l 1,0 0,1 -1,0 z M 0,5 l 1,0 0,1 -1,0 z M 6,5 l 1,0 0,1 -1,0 z M 8,5 l 1,0 0,1 -1,0 z M 9,5 l 1,0 0,1 -1,0 z M 11,5 l 1,0 0,1 -1,0 z M 12,5 l 1,0 0,1 -1,0 z M 13,5 l 1,0 0,1 -1,0 z M 14,5 l 1,0 0,1 -1,0 z M 15,5 l 1,0 0,1 -1,0 z M 16,5 l 1,0 0,1 -1,0 z M 17,5 l 1,0 0,1 -1,0 z M 18,5 l 1,0 0,1 -1,0 z M 20,5 l 1,0 0,1 -1,0 z M 22,5 l 1,0 0,1 -1,0 z M 28,5 l 1,0 0,1 -1,0 z M 0,6 l 1,0 0,1 -1,0 z M 1,6 l 1,0 0,1 -1,0 z M 2,6 l 1,0 0,1 -1,0 z M 3,6 l 1,0 0,1 -1,0 z M 4,6 l 1,0 0,1 -1,0 z M 5,6 l 1,0 0,1 -1,0 z M 6,6 l 1,0 0,1 -1,0 z M 8,6 l 1,0 0,1 -1,0 z M 10,6 l 1,0 0,1 -1,0 z M 12,6 l 1,0 0,1 -1,0 z M 14,6 l 1,0 0,1 -1,0 z M 16,6 l 1,0 0,1 -1,0 z M 18,6 l 1,0 0,1 -1,0 z M 20,6 l 1,0 0,1 -1,0 z M 22,6 l 1,0 0,1 -1,0 z M 23,6 l 1,0 0,1 -1,0 z M 24,6 l 1,0 0,1 -1,0 z M 25,6 l 1,0 0,1 -1,0 z M 26,6 l 1,0 0,1 -1,0 z M 27,6 l 1,0 0,1 -1,0 z M 28,6 l 1,0 0,1 -1,0 z M 9,7 l 1,0 0,1 -1,0 z M 10,7 l 1,0 0,1 -1,0 z M 11,7 l 1,0 0,1 -1,0 z M 14,7 l 1,0 0,1 -1,0 z M 15,7 l 1,0 0,1 -1,0 z M 18,7 l 1,0 0,1 -1,0 z M 19,7 l 1,0 0,1 -1,0 z M 0,8 l 1,0 0,1 -1,0 z M 1,8 l 1,0 0,1 -1,0 z M 2,8 l 1,0 0,1 -1,0 z M 3,8 l 1,0 0,1 -1,0 z M 4,8 l 1,0 0,1 -1,0 z M 6,8 l 1,0 0,1 -1,0 z M 7,8 l 1,0 0,1 -1,0 z M 8,8 l 1,0 0,1 -1,0 z M 9,8 l 1,0 0,1 -1,0 z M 11,8 l 1,0 0,1 -1,0 z M 15,8 l 1,0 0,1 -1,0 z M 17,8 l 1,0 0,1 -1,0 z M 19,8 l 1,0 0,1 -1,0 z M 21,8 l 1,0 0,1 -1,0 z M 23,8 l 1,0 0,1 -1,0 z M 25,8 l 1,0 0,1 -1,0 z M 27,8 l 1,0 0,1 -1,0 z M 0,9 l 1,0 0,1 -1,0 z M 1,9 l 1,0 0,1 -1,0 z M 5,9 l 1,0 0,1 -1,0 z M 10,9 l 1,0 0,1 -1,0 z M 12,9 l 1,0 0,1 -1,0 z M 13,9 l 1,0 0,1 -1,0 z M 16,9 l 1,0 0,1 -1,0 z M 18,9 l 1,0 0,1 -1,0 z M 19,9 l 1,0 0,1 -1,0 z M 20,9 l 1,0 0,1 -1,0 z M 21,9 l 1,0 0,1 -1,0 z M 22,9 l 1,0 0,1 -1,0 z M 23,9 l 1,0 0,1 -1,0 z M 24,9 l 1,0 0,1 -1,0 z M 28,9 l 1,0 0,1 -1,0 z M 0,10 l 1,0 0,1 -1,0 z M 3,10 l 1,0 0,1 -1,0 z M 5,10 l 1,0 0,1 -1,0 z M 6,10 l 1,0 0,1 -1,0 z M 10,10 l 1,0 0,1 -1,0 z M 13,10 l 1,0 0,1 -1,0 z M 14,10 l 1,0 0,1 -1,0 z M 15,10 l 1,0 0,1 -1,0 z M 18,10 l 1,0 0,1 -1,0 z M 20,10 l 1,0 0,1 -1,0 z M 22,10 l 1,0 0,1 -1,0 z M 23,10 l 1,0 0,1 -1,0 z M 4,11 l 1,0 0,1 -1,0 z M 8,11 l 1,0 0,1 -1,0 z M 12,11 l 1,0 0,1 -1,0 z M 13,11 l 1,0 0,1 -1,0 z M 16,11 l 1,0 0,1 -1,0 z M 21,11 l 1,0 0,1 -1,0 z M 22,11 l 1,0 0,1 -1,0 z M 24,11 l 1,0 0,1 -1,0 z M 25,11 l 1,0 0,1 -1,0 z M 27,11 l 1,0 0,1 -1,0 z M 1,12 l 1,0 0,1 -1,0 z M 2,12 l 1,0 0,1 -1,0 z M 3,12 l 1,0 0,1 -1,0 z M 4,12 l 1,0 0,1 -1,0 z M 5,12 l 1,0 0,1 -1,0 z M 6,12 l 1,0 0,1 -1,0 z M 7,12 l 1,0 0,1 -1,0 z M 9,12 l 1,0 0,1 -1,0 z M 10,12 l 1,0 0,1 -1,0 z M 12,12 l 1,0 0,1 -1,0 z M 14,12 l 1,0 0,1 -1,0 z M 17,12 l 1,0 0,1 -1,0 z M 18,12 l 1,0 0,1 -1,0 z M 23,12 l 1,0 0,1 -1,0 z M 25,12 l 1,0 0,1 -1,0 z M 26,12 l 1,0 0,1 -1,0 z M 0,13 l 1,0 0,1 -1,0 z M 1,13 l 1,0 0,1 -1,0 z M 3,13 l 1,0 0,1 -1,0 z M 7,13 l 1,0 0,1 -1,0 z M 9,13 l 1,0 0,1 -1,0 z M 17,13 l 1,0 0,1 -1,0 z M 18,13 l 1,0 0,1 -1,0 z M 19,13 l 1,0 0,1 -1,0 z M 20,13 l 1,0 0,1 -1,0 z M 21,13 l 1,0 0,1 -1,0 z M 22,13 l 1,0 0,1 -1,0 z M 23,13 l 1,0 0,1 -1,0 z M 24,13 l 1,0 0,1 -1,0 z M 28,13 l 1,0 0,1 -1,0 z M 2,14 l 1,0 0,1 -1,0 z M 3,14 l 1,0 0,1 -1,0 z M 6,14 l 1,0 0,1 -1,0 z M 11,14 l 1,0 0,1 -1,0 z M 12,14 l 1,0 0,1 -1,0 z M 15,14 l 1,0 0,1 -1,0 z M 16,14 l 1,0 0,1 -1,0 z M 17,14 l 1,0 0,1 -1,0 z M 21,14 l 1,0 0,1 -1,0 z M 24,14 l 1,0 0,1 -1,0 z M 25,14 l 1,0 0,1 -1,0 z M 26,14 l 1,0 0,1 -1,0 z M 2,15 l 1,0 0,1 -1,0 z M 7,15 l 1,0 0,1 -1,0 z M 9,15 l 1,0 0,1 -1,0 z M 11,15 l 1,0 0,1 -1,0 z M 14,15 l 1,0 0,1 -1,0 z M 15,15 l 1,0 0,1 -1,0 z M 18,15 l 1,0 0,1 -1,0 z M 22,15 l 1,0 0,1 -1,0 z M 23,15 l 1,0 0,1 -1,0 z M 24,15 l 1,0 0,1 -1,0 z M 27,15 l 1,0 0,1 -1,0 z M 1,16 l 1,0 0,1 -1,0 z M 3,16 l 1,0 0,1 -1,0 z M 6,16 l 1,0 0,1 -1,0 z M 7,16 l 1,0 0,1 -1,0 z M 8,16 l 1,0 0,1 -1,0 z M 11,16 l 1,0 0,1 -1,0 z M 16,16 l 1,0 0,1 -1,0 z M 17,16 l 1,0 0,1 -1,0 z M 20,16 l 1,0 0,1 -1,0 z M 23,16 l 1,0 0,1 -1,0 z M 25,16 l 1,0 0,1 -1,0 z M 26,16 l 1,0 0,1 -1,0 z M 0,17 l 1,0 0,1 -1,0 z M 7,17 l 1,0 0,1 -1,0 z M 8,17 l 1,0 0,1 -1,0 z M 9,17 l 1,0 0,1 -1,0 z M 10,17 l 1,0 0,1 -1,0 z M 12,17 l 1,0 0,1 -1,0 z M 13,17 l 1,0 0,1 -1,0 z M 14,17 l 1,0 0,1 -1,0 z M 16,17 l 1,0 0,1 -1,0 z M 17,17 l 1,0 0,1 -1,0 z M 18,17 l 1,0 0,1 -1,0 z M 19,17 l 1,0 0,1 -1,0 z M 20,17 l 1,0 0,1 -1,0 z M 22,17 l 1,0 0,1 -1,0 z M 23,17 l 1,0 0,1 -1,0 z M 24,17 l 1,0 0,1 -1,0 z M 26,17 l 1,0 0,1 -1,0 z M 28,17 l 1,0 0,1 -1,0 z M 0,18 l 1,0 0,1 -1,0 z M 3,18 l 1,0 0,1 -1,0 z M 4,18 l 1,0 0,1 -1,0 z M 5,18 l 1,0 0,1 -1,0 z M 6,18 l 1,0 0,1 -1,0 z M 9,18 l 1,0 0,1 -1,0 z M 10,18 l 1,0 0,1 -1,0 z M 13,18 l 1,0 0,1 -1,0 z M 14,18 l 1,0 0,1 -1,0 z M 15,18 l 1,0 0,1 -1,0 z M 17,18 l 1,0 0,1 -1,0 z M 20,18 l 1,0 0,1 -1,0 z M 23,18 l 1,0 0,1 -1,0 z M 24,18 l 1,0 0,1 -1,0 z M 26,18 l 1,0 0,1 -1,0 z M 0,19 l 1,0 0,1 -1,0 z M 2,19 l 1,0 0,1 -1,0 z M 3,19 l 1,0 0,1 -1,0 z M 8,19 l 1,0 0,1 -1,0 z M 9,19 l 1,0 0,1 -1,0 z M 10,19 l 1,0 0,1 -1,0 z M 12,19 l 1,0 0,1 -1,0 z M 13,19 l 1,0 0,1 -1,0 z M 16,19 l 1,0 0,1 -1,0 z M 18,19 l 1,0 0,1 -1,0 z M 20,19 l 1,0 0,1 -1,0 z M 23,19 l 1,0 0,1 -1,0 z M 24,19 l 1,0 0,1 -1,0 z M 27,19 l 1,0 0,1 -1,0 z M 0,20 l 1,0 0,1 -1,0 z M 3,20 l 1,0 0,1 -1,0 z M 4,20 l 1,0 0,1 -1,0 z M 5,20 l 1,0 0,1 -1,0 z M 6,20 l 1,0 0,1 -1,0 z M 7,20 l 1,0 0,1 -1,0 z M 12,20 l 1,0 0,1 -1,0 z M 14,20 l 1,0 0,1 -1,0 z M 15,20 l 1,0 0,1 -1,0 z M 17,20 l 1,0 0,1 -1,0 z M 19,20 l 1,0 0,1 -1,0 z M 20,20 l 1,0 0,1 -1,0 z M 21,20 l 1,0 0,1 -1,0 z M 22,20 l 1,0 0,1 -1,0 z M 23,20 l 1,0 0,1 -1,0 z M 24,20 l 1,0 0,1 -1,0 z M 26,20 l 1,0 0,1 -1,0 z M 27,20 l 1,0 0,1 -1,0 z M 28,20 l 1,0 0,1 -1,0 z M 8,21 l 1,0 0,1 -1,0 z M 16,21 l 1,0 0,1 -1,0 z M 18,21 l 1,0 0,1 -1,0 z M 20,21 l 1,0 0,1 -1,0 z M 24,21 l 1,0 0,1 -1,0 z M 25,21 l 1,0 0,1 -1,0 z M 26,21 l 1,0 0,1 -1,0 z M 27,21 l 1,0 0,1 -1,0 z M 28,21 l 1,0 0,1 -1,0 z M 0,22 l 1,0 0,1 -1,0 z M 1,22 l 1,0 0,1 -1,0 z M 2,22 l 1,0 0,1 -1,0 z M 3,22 l 1,0 0,1 -1,0 z M 4,22 l 1,0 0,1 -1,0 z M 5,22 l 1,0 0,1 -1,0 z M 6,22 l 1,0 0,1 -1,0 z M 8,22 l 1,0 0,1 -1,0 z M 10,22 l 1,0 0,1 -1,0 z M 11,22 l 1,0 0,1 -1,0 z M 12,22 l 1,0 0,1 -1,0 z M 15,22 l 1,0 0,1 -1,0 z M 16,22 l 1,0 0,1 -1,0 z M 19,22 l 1,0 0,1 -1,0 z M 20,22 l 1,0 0,1 -1,0 z M 22,22 l 1,0 0,1 -1,0 z M 24,22 l 1,0 0,1 -1,0 z M 25,22 l 1,0 0,1 -1,0 z M 26,22 l 1,0 0,1 -1,0 z M 0,23 l 1,0 0,1 -1,0 z M 6,23 l 1,0 0,1 -1,0 z M 9,23 l 1,0 0,1 -1,0 z M 10,23 l 1,0 0,1 -1,0 z M 11,23 l 1,0 0,1 -1,0 z M 14,23 l 1,0 0,1 -1,0 z M 15,23 l 1,0 0,1 -1,0 z M 20,23 l 1,0 0,1 -1,0 z M 24,23 l 1,0 0,1 -1,0 z M 27,23 l 1,0 0,1 -1,0 z M 28,23 l 1,0 0,1 -1,0 z M 0,24 l 1,0 0,1 -1,0 z M 2,24 l 1,0 0,1 -1,0 z M 3,24 l 1,0 0,1 -1,0 z M 4,24 l 1,0 0,1 -1,0 z M 6,24 l 1,0 0,1 -1,0 z M 8,24 l 1,0 0,1 -1,0 z M 9,24 l 1,0 0,1 -1,0 z M 10,24 l 1,0 0,1 -1,0 z M 11,24 l 1,0 0,1 -1,0 z M 17,24 l 1,0 0,1 -1,0 z M 20,24 l 1,0 0,1 -1,0 z M 21,24 l 1,0 0,1 -1,0 z M 22,24 l 1,0 0,1 -1,0 z M 23,24 l 1,0 0,1 -1,0 z M 24,24 l 1,0 0,1 -1,0 z M 26,24 l 1,0 0,1 -1,0 z M 0,25 l 1,0 0,1 -1,0 z M 2,25 l 1,0 0,1 -1,0 z M 3,25 l 1,0 0,1 -1,0 z M 4,25 l 1,0 0,1 -1,0 z M 6,25 l 1,0 0,1 -1,0 z M 8,25 l 1,0 0,1 -1,0 z M 10,25 l 1,0 0,1 -1,0 z M 12,25 l 1,0 0,1 -1,0 z M 13,25 l 1,0 0,1 -1,0 z M 14,25 l 1,0 0,1 -1,0 z M 16,25 l 1,0 0,1 -1,0 z M 19,25 l 1,0 0,1 -1,0 z M 20,25 l 1,0 0,1 -1,0 z M 23,25 l 1,0 0,1 -1,0 z M 25,25 l 1,0 0,1 -1,0 z M 26,25 l 1,0 0,1 -1,0 z M 27,25 l 1,0 0,1 -1,0 z M 28,25 l 1,0 0,1 -1,0 z M 0,26 l 1,0 0,1 -1,0 z M 2,26 l 1,0 0,1 -1,0 z M 3,26 l 1,0 0,1 -1,0 z M 4,26 l 1,0 0,1 -1,0 z M 6,26 l 1,0 0,1 -1,0 z M 8,26 l 1,0 0,1 -1,0 z M 9,26 l 1,0 0,1 -1,0 z M 10,26 l 1,0 0,1 -1,0 z M 13,26 l 1,0 0,1 -1,0 z M 14,26 l 1,0 0,1 -1,0 z M 15,26 l 1,0 0,1 -1,0 z M 22,26 l 1,0 0,1 -1,0 z M 23,26 l 1,0 0,1 -1,0 z M 24,26 l 1,0 0,1 -1,0 z M 25,26 l 1,0 0,1 -1,0 z M 26,26 l 1,0 0,1 -1,0 z M 27,26 l 1,0 0,1 -1,0 z M 0,27 l 1,0 0,1 -1,0 z M 6,27 l 1,0 0,1 -1,0 z M 8,27 l 1,0 0,1 -1,0 z M 9,27 l 1,0 0,1 -1,0 z M 12,27 l 1,0 0,1 -1,0 z M 13,27 l 1,0 0,1 -1,0 z M 15,27 l 1,0 0,1 -1,0 z M 16,27 l 1,0 0,1 -1,0 z M 18,27 l 1,0 0,1 -1,0 z M 19,27 l 1,0 0,1 -1,0 z M 20,27 l 1,0 0,1 -1,0 z M 25,27 l 1,0 0,1 -1,0 z M 27,27 l 1,0 0,1 -1,0 z M 0,28 l 1,0 0,1 -1,0 z M 1,28 l 1,0 0,1 -1,0 z M 2,28 l 1,0 0,1 -1,0 z M 3,28 l 1,0 0,1 -1,0 z M 4,28 l 1,0 0,1 -1,0 z M 5,28 l 1,0 0,1 -1,0 z M 6,28 l 1,0 0,1 -1,0 z M 8,28 l 1,0 0,1 -1,0 z M 10,28 l 1,0 0,1 -1,0 z M 12,28 l 1,0 0,1 -1,0 z M 14,28 l 1,0 0,1 -1,0 z M 17,28 l 1,0 0,1 -1,0 z M 19,28 l 1,0 0,1 -1,0 z M 21,28 l 1,0 0,1 -1,0 z M 23,28 l 1,0 0,1 -1,0 z M 26,28 l 1,0 0,1 -1,0 z " />
+      </svg>
+    </g>
+
+    <!-- Bottom QR Caption in Dark Black -->
+    <text x="78" y="185" class="dark-sub" text-anchor="middle">Scan for Quick Menu</text>
+    <text x="78" y="202" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="800" fill="#9e241c" text-anchor="middle">nutsncuts-pakeeza</text>
+    <text x="78" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#111111" text-anchor="middle">.netlify.app</text>
+  </g>
+</svg>
+
+</body>
+</html>

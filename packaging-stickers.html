@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuts N Cuts by Pakeeza — Packaging Stickers & Print Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6e1913;
+      --primary-dark: #4a100c;
+      --gold: #c99f63;
+      --gold-light: #f5e6cc;
+      --dark: #1b1511;
+      --bg-cream: #f7f4ee;
+      --white: #ffffff;
+      --border: #e3d9cc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    /* SCREEN ONLY NAVBAR & CONTROLS */
+    @media screen {
+      .screen-bar {
+        background: linear-gradient(135deg, #460d09, #6e1913);
+        color: #fff;
+        padding: 1.1rem 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .bar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .brand-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.35rem;
+        letter-spacing: 1px;
+      }
+      .brand-title span {
+        font-family: 'Great Vibes', cursive;
+        color: var(--gold-light);
+        font-size: 1.6rem;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 0.4rem;
+        background: rgba(255,255,255,0.12);
+        padding: 4px;
+        border-radius: 999px;
+      }
+      .nav-tab {
+        background: transparent;
+        border: none;
+        color: #f2e2d8;
+        padding: 0.5rem 1.1rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .nav-tab.active, .nav-tab:hover {
+        background: #ffffff;
+        color: var(--primary);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      }
+      .action-btns {
+        display: flex;
+        gap: 0.6rem;
+      }
+      .btn {
+        padding: 0.55rem 1.25rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .btn-gold {
+        background: linear-gradient(135deg, #e2be88, #c99f63);
+        color: #2a1107;
+      }
+      .btn-gold:hover {
+        filter: brightness(1.08);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .guide-box {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-left: 5px solid var(--primary);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      }
+      .guide-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 0.35rem;
+      }
+      .guide-desc {
+        color: #554439;
+        font-size: 0.92rem;
+      }
+
+      .stickers-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .sticker-card {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.75rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        display: flex;
+        flex-direction: column;
+      }
+      .card-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        background: #faecea;
+        padding: 4px 10px;
+        border-radius: 6px;
+        margin-bottom: 0.5rem;
+        width: fit-content;
+      }
+      .card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.35rem;
+        color: var(--dark);
+        margin-bottom: 0.3rem;
+      }
+      .card-desc {
+        font-size: 0.88rem;
+        color: #68574c;
+        margin-bottom: 1.25rem;
+      }
+      .preview-window {
+        background: #eee8de;
+        border: 2px dashed #d5c8b6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 220px;
+        margin-bottom: 1.25rem;
+        overflow: hidden;
+      }
+      .preview-window img, .preview-window svg {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      }
+      .dim-specs {
+        background: #faf7f2;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        margin-bottom: 1.25rem;
+        color: #4b3d34;
+      }
+      .dim-specs strong { color: var(--primary); }
+      .card-actions {
+        display: flex;
+        gap: 0.6rem;
+        margin-top: auto;
+      }
+      .btn-download {
+        flex: 1;
+        padding: 0.7rem;
+        background: #f4ece2;
+        border: 1px solid #d9cbbe;
+        color: #3b2b22;
+        font-weight: 700;
+        font-size: 0.82rem;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        transition: 0.2s;
+        text-decoration: none;
+      }
+      .btn-download:hover {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+      }
+    }
+
+    /* PRINT SHEET VIEW */
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 1rem auto;
+      background: #ffffff;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      padding: 10mm;
+      display: none;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .a4-sheet.active {
+      display: block;
+    }
+    .sheet-header {
+      border-bottom: 1.5px dashed #ccc;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9pt;
+      color: #666;
+    }
+    .sheet-title {
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Front Grid: 2 columns x 4 rows = 8 stickers */
+    .grid-front {
+      display: grid;
+      grid-template-columns: repeat(2, 92mm);
+      column-gap: 6mm;
+      row-gap: 8mm;
+      justify-content: center;
+    }
+    .cut-box-front {
+      border: 0.5px dashed #bbb;
+      padding: 1.5mm;
+      border-radius: 4mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cut-box-front svg {
+      width: 90mm;
+      height: 30mm;
+      display: block;
+    }
+
+    /* Back Grid: 2 columns x 3 rows = 6 stickers */
+    .grid-back {
+      display: grid;
+      grid-template-columns: repeat(2, 92mm);
+      column-gap: 6mm;
+      row-gap: 6mm;
+      justify-content: center;
+    }
+    .cut-box-back {
+      border: 0.5px dashed #bbb;
+      padding: 1mm;
+      border-radius: 3mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cut-box-back svg {
+      width: 90mm;
+      height: 53mm;
+      display: block;
+    }
+
+    /* Combo Grid: 4 Front + 4 Back */
+    .grid-combo {
+      display: flex;
+      flex-direction: column;
+      gap: 5mm;
+    }
+    .combo-section-title {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #777;
+      text-transform: uppercase;
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 2px;
+      margin-top: 2mm;
+    }
+    .combo-row {
+      display: grid;
+      grid-template-columns: repeat(2, 92mm);
+      column-gap: 6mm;
+      row-gap: 4mm;
+      justify-content: center;
+    }
+
+    /* PRINT MEDIA RULES */
+    @media print {
+      body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .screen-bar, .container, .guide-box {
+        display: none !important;
+      }
+      .a4-sheet {
+        display: none !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        padding: 5mm !important;
+        page-break-after: avoid !important;
+      }
+      .a4-sheet.active {
+        display: block !important;
+      }
+      .cut-box-front, .cut-box-back {
+        border-color: #ddd !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 8mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Top Bar -->
+  <header class="screen-bar">
+    <div class="bar-inner">
+      <div class="brand-title">
+        NUTS N CUTS <span>by Pakeeza</span> · Packaging Stickers Studio
+      </div>
+
+      <nav class="nav-tabs">
+        <button class="nav-tab active" onclick="switchTab('designs')">Stickers Preview</button>
+        <button class="nav-tab" onclick="switchTab('sheet-front')">A4: Front Stickers (8)</button>
+        <button class="nav-tab" onclick="switchTab('sheet-back')">A4: Back Stickers (6)</button>
+        <button class="nav-tab" onclick="switchTab('sheet-combo')">A4: Mixed Combo</button>
+      </nav>
+
+      <div class="action-btns">
+        <button class="btn btn-gold" onclick="triggerPrint()">🖨️ Print / Save PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Screen Preview Content -->
+  <main class="container" id="tab-designs">
+    
+    <div class="guide-box">
+      <div class="guide-title">🎨 Packaging Match &amp; Zero Delivery Charges Updated!</div>
+      <div class="guide-desc">
+        Aap ki packaging pouch k mutabiq dono stickers ki theme update kar di gayi hai:
+        <ul style="margin: 0.5rem 0 0.5rem 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+          <li><strong>Front Sticker:</strong> Pouch k top slanted box k dark maroon/crimson tone aur gold arc borders k sath 100% match karta hai. Oopar paste karne se purana "Pakeeza traders" logo chupp jayega aur transparent dry fruits window saaf rahay gi.</li>
+          <li><strong>Back Sticker:</strong> Pouch k natural off-white paper texture aur deep crimson borders k sath match karta hai. <strong>Delivery charges bilkul hata diye gaye hain</strong>. Sirf Official Website link, WhatsApp support, Scannable QR Code aur pyara sa Thank You note shaamil hai.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stickers-showcase">
+      <!-- FRONT STICKER CARD -->
+      <div class="sticker-card">
+        <span class="card-tag">Front Packaging Overlay</span>
+        <h3 class="card-title">Front Pouch Logo Sticker</h3>
+        <p class="card-desc">Deep crimson pouch shade with gold foil accents, circular brand seal and Playfair typography.</p>
+        
+        <div class="preview-window">
+          <div id="front-svg-container" style="width: 100%; max-width: 480px;"></div>
+        </div>
+
+        <div class="dim-specs">
+          <strong>Recommended Size:</strong> 90 mm × 30 mm (approx 3.55" × 1.20")<br>
+          <strong>Fits:</strong> Perfectly over the top slanted red brand box
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-download" onclick="exportPNG('front')">💾 Save Image (PNG)</button>
+          <a class="btn-download" href="sticker-front.svg" download="NutsNCuts-Front-Sticker.svg">📥 Save Vector (SVG)</a>
+        </div>
+      </div>
+
+      <!-- BACK STICKER CARD -->
+      <div class="sticker-card">
+        <span class="card-tag">Back Packaging Overlay</span>
+        <h3 class="card-title">Back Contact &amp; QR Sticker</h3>
+        <p class="card-desc">Off-white pouch paper background, crimson borders, official website link, WhatsApp, QR code &amp; Thank You note (No delivery charges).</p>
+        
+        <div class="preview-window">
+          <div id="back-svg-container" style="width: 100%; max-width: 440px;"></div>
+        </div>
+
+        <div class="dim-specs">
+          <strong>Recommended Size:</strong> 90 mm × 53 mm (approx 3.55" × 2.10")<br>
+          <strong>Fits:</strong> Covers old Rawalpindi address and barcode cleanly
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-download" onclick="exportPNG('back')">💾 Save Image (PNG)</button>
+          <a class="btn-download" href="sticker-back.svg" download="NutsNCuts-Back-Sticker.svg">📥 Save Vector (SVG)</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step by Step Printing & Saving Guide -->
+    <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
+      <h4 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 0.6rem; font-family: 'Playfair Display', serif;">📖 Isko Save Aur Print Kaise Karein? (Step-by-Step)</h4>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+        
+        <div style="background: #faf7f2; padding: 1.2rem; border-radius: 10px; border-left: 4px solid var(--primary);">
+          <strong style="color: var(--primary); font-size: 1rem; display: block; margin-bottom: 0.4rem;">Option 1: Apnay Computer / Printer Se (1-Click)</strong>
+          <ol style="font-size: 0.88rem; color: #4e3d33; margin-left: 1.2rem; line-height: 1.7;">
+            <li>Oopar <strong>"A4: Front Stickers"</strong> ya <strong>"A4: Back Stickers"</strong> tab per click karein.</li>
+            <li>Oopar right per <strong>"🖨️ Print / Save PDF"</strong> button dabayein (ya keyboard se <code>Ctrl + P</code>).</li>
+            <li>Printer mein <strong>"Save as PDF"</strong> select kar k file save kar lein, ya direct apna color printer select karein.</li>
+            <li>Paper Size: <strong>A4</strong> aur Scale: <strong>100% (Default)</strong> rakhein.</li>
+            <li>A4 Sticker Paper per print kar k scissor se cut karein aur pouches per chipka dein!</li>
+          </ol>
+        </div>
+
+        <div style="background: #faf7f2; padding: 1.2rem; border-radius: 10px; border-left: 4px solid var(--gold);">
+          <strong style="color: var(--primary); font-size: 1rem; display: block; margin-bottom: 0.4rem;">Option 2: Printing Shop / Press Walay Ko Bhejna</strong>
+          <ol style="font-size: 0.88rem; color: #4e3d33; margin-left: 1.2rem; line-height: 1.7;">
+            <li>Dono cards k neechay <strong>"💾 Save Image (PNG)"</strong> button dabayein, high quality image aap k Downloads folder mein save ho jayegi.</li>
+            <li>Aap k computer ki <strong>D: drive</strong> per bhi <code>sticker-front.svg</code> aur <code>sticker-back.svg</code> saved hain.</li>
+            <li>Yeh image ya SVG file WhatsApp ya USB k zariye kisi bhi printing shop walay ko dein aur kahein: <em>"A4 sticker sheet per yeh print nikaal dein"</em>.</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- TAB 2: A4 FRONT SHEET (8 STICKERS) -->
+  <div class="a4-sheet" id="sheet-front">
+    <div class="sheet-header">
+      <span class="sheet-title">Nuts N Cuts by Pakeeza — Front Pouch Stickers (8 per A4 Sheet)</span>
+      <span>Size: 90mm × 30mm each · Fit: Top Logo Area</span>
+    </div>
+    <div class="grid-front" id="front-grid-target"></div>
+  </div>
+
+  <!-- TAB 3: A4 BACK SHEET (6 STICKERS) -->
+  <div class="a4-sheet" id="sheet-back">
+    <div class="sheet-header">
+      <span class="sheet-title">Nuts N Cuts by Pakeeza — Back Reordering Stickers (6 per A4 Sheet)</span>
+      <span>Size: 90mm × 53mm each · Covers Old Address &amp; Barcode</span>
+    </div>
+    <div class="grid-back" id="back-grid-target"></div>
+  </div>
+
+  <!-- TAB 4: A4 COMBO SHEET (4 FRONT + 4 BACK) -->
+  <div class="a4-sheet" id="sheet-combo">
+    <div class="sheet-header">
+      <span class="sheet-title">Nuts N Cuts by Pakeeza — Mixed Starter Sheet (4 Front + 4 Back)</span>
+      <span>A4 Self-Adhesive Sticker Sheet</span>
+    </div>
+    <div class="grid-combo">
+      <div class="combo-section-title">Front Pouch Logo Stickers (4 pcs)</div>
+      <div class="combo-row" id="combo-front-target"></div>
+      <div class="combo-section-title" style="margin-top: 3mm;">Back Details &amp; QR Stickers (4 pcs)</div>
+      <div class="combo-row" id="combo-back-target"></div>
+    </div>
+  </div>
+
+  <!-- Hidden Canvas for PNG Generation -->
+  <canvas id="exportCanvas" style="display:none;"></canvas>
+
+  <script>
+    let frontSvgCode = '';
+    let backSvgCode = '';
+
+    async function loadSvgs() {
+      try {
+        const [resF, resB] = await Promise.all([
+          fetch('sticker-front.svg'),
+          fetch('sticker-back.svg')
+        ]);
+        frontSvgCode = await resF.text();
+        backSvgCode = await resB.text();
+      } catch (e) {
+        console.error("Fetch failed", e);
+      }
+      
+      // Inject preview
+      document.getElementById('front-svg-container').innerHTML = frontSvgCode;
+      document.getElementById('back-svg-container').innerHTML = backSvgCode;
+
+      // Populate A4 Front Sheet (8 stickers)
+      const frontTarget = document.getElementById('front-grid-target');
+      for (let i = 0; i < 8; i++) {
+        const box = document.createElement('div');
+        box.className = 'cut-box-front';
+        box.innerHTML = frontSvgCode;
+        frontTarget.appendChild(box);
+      }
+
+      // Populate A4 Back Sheet (6 stickers)
+      const backTarget = document.getElementById('back-grid-target');
+      for (let i = 0; i < 6; i++) {
+        const box = document.createElement('div');
+        box.className = 'cut-box-back';
+        box.innerHTML = backSvgCode;
+        backTarget.appendChild(box);
+      }
+
+      // Populate Combo Sheet (4 front + 4 back)
+      const comboF = document.getElementById('combo-front-target');
+      for (let i = 0; i < 4; i++) {
+        const box = document.createElement('div');
+        box.className = 'cut-box-front';
+        box.innerHTML = frontSvgCode;
+        comboF.appendChild(box);
+      }
+      const comboB = document.getElementById('combo-back-target');
+      for (let i = 0; i < 4; i++) {
+        const box = document.createElement('div');
+        box.className = 'cut-box-back';
+        box.innerHTML = backSvgCode;
+        comboB.appendChild(box);
+      }
+    }
+
+    let currentTab = 'designs';
+    function switchTab(tabId) {
+      currentTab = tabId;
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.nav-tab')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      if (tabId === 'designs') {
+        document.getElementById('tab-designs').style.display = 'block';
+        document.getElementById('sheet-front').classList.remove('active');
+        document.getElementById('sheet-back').classList.remove('active');
+        document.getElementById('sheet-combo').classList.remove('active');
+      } else {
+        document.getElementById('tab-designs').style.display = 'none';
+        document.getElementById('sheet-front').classList.toggle('active', tabId === 'sheet-front');
+        document.getElementById('sheet-back').classList.toggle('active', tabId === 'sheet-back');
+        document.getElementById('sheet-combo').classList.toggle('active', tabId === 'sheet-combo');
+      }
+    }
+
+    function triggerPrint() {
+      if (currentTab === 'designs') {
+        switchTab('sheet-front');
+      }
+      window.print();
+    }
+
+    function exportPNG(type) {
+      const svgCode = type === 'front' ? frontSvgCode : backSvgCode;
+      const width = type === 'front' ? 1200 : 1360;
+      const height = type === 'front' ? 400 : 800;
+      const filename = type === 'front' ? 'NutsNCuts-Front-Sticker.png' : 'NutsNCuts-Back-Sticker.png';
+
+      const canvas = document.getElementById('exportCanvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+
+      const img = new Image();
+      const svgBlob = new Blob([svgCode], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = function() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+        URL.revokeObjectURL(url);
+        
+        const a = document.createElement('a');
+        a.download = filename;
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+      };
+      img.src = url;
+    }
+
+    window.addEventListener('DOMContentLoaded', loadSvgs);
+  </script>
+</body>
+</html>
