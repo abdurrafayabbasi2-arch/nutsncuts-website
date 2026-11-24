@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap Index
-Sitemap: https://nutsncuts-pakeeza.netlify.app/sitemap.xml
+Sitemap: https://peppy-stroopwafel-4ea54e.netlify.app/sitemap.xml
